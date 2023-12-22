@@ -15,9 +15,6 @@ on:
         description: 'Create Release (set true to create a release)'
         required: true
         default: 'false'
-      version:
-        description: 'App Version for the Release'
-        required: true
 
 # 4
 jobs:
