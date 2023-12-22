@@ -60,7 +60,7 @@ jobs:
 
       # Create tag
       - uses: actions/checkout@v4
-      - uses: jacopocarlini/action-autotag@stable
+      - uses: jacopocarlini/action-autotag@3.0.0
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
