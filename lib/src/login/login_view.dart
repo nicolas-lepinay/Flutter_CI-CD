@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
         child: Column(
           children: [
             const TextField(
-              key: const Key('loginTextField'),
+              key: Key('loginTextField'),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Identifiant',
@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             const TextField(
-              key: const Key('passwordTextField'),
+              key: Key('passwordTextField'),
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -34,7 +34,7 @@ class LoginView extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
-                key: const Key('loginButton'),
+                key: Key('loginButton'),
                 onPressed: () {
                   Navigator.restorablePushNamed(context, SampleItemListView.routeName);
                 },
