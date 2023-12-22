@@ -36,7 +36,8 @@ class LoginView extends StatelessWidget {
             ElevatedButton(
                 key: const Key('loginButton'),
                 onPressed: () {
-                  Navigator.restorablePushNamed(context, SampleItemListView.routeName);
+                  Navigator.restorablePushNamed(
+                      context, SampleItemListView.routeName);
                 },
                 child: const Text('Connexion'))
           ],
