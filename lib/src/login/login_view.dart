@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
         child: Column(
           children: [
             const TextField(
-              key: Key('loginTextField'),
+              key: const Key('loginTextField'),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Identifiant',
@@ -25,7 +25,7 @@ class LoginView extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             const TextField(
-              key: Key('passwordTextField'),
+              key: const Key('passwordTextField'),
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
