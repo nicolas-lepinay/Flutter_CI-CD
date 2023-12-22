@@ -10,6 +10,14 @@ on:
 
   # 3
   workflow_dispatch:
+    inputs:
+      createRelease:
+        description: 'Create Release (set true to create a release)'
+        required: true
+        default: 'false'
+      version:
+        description: 'App Version for the Release'
+        required: true
 
 # 4
 jobs:
@@ -61,6 +69,18 @@ jobs:
       # Create tag
       - uses: actions/checkout@v4
       - uses: jacopocarlini/action-autotag@3.0.0
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+  create_release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.createRelease == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create Release
+        id: create_release
+        uses: jacopocarlini/action-autotag@3.0.0
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           
