@@ -5,8 +5,8 @@ import 'package:flutter_app/main.dart' as app;
 
 void main() {
   group('App Test', () {
-    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-    binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
+    //final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+    //binding.framePolicy = LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
     testWidgets("Full App Test", (tester) async {
       // Exécuter la fonction main() de l'app
