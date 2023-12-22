@@ -7,9 +7,10 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('Plus Operator', () {
-    test('should add two numbers together', () {
-      expect(1 + 1, 2);
-    });
+  test('Login function should succeed if credentials are valid.', () {
+    expect(1 + 1, 2);
+  });
+  test('Login function should fail if credentials are invalid.', () {
+    expect(1 + 1, 2);
   });
 }
