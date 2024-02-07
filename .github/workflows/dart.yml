@@ -64,10 +64,10 @@ jobs:
           path: build/app/outputs/flutter-apk/app-release.apk
 
       # Create tag
-      #- uses: actions/checkout@v4
-      #- uses: jacopocarlini/action-autotag@3.0.0
-      #  with:
-      #    GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v4
+      - uses: jacopocarlini/action-autotag@3.0.0
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
   create_release:
     runs-on: ubuntu-latest
