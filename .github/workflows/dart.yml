@@ -87,8 +87,8 @@ jobs:
             flutter build ios --release --no-codesign
           fi
 
-      - name: List IPA files
-        run: ls -l build/ios/ipa/
+      - name: List Build Outputs
+        run: ls -l build/ios/iphoneos/
 
       - uses: actions/upload-artifact@v4
         with:
