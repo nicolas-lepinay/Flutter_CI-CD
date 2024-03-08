@@ -28,11 +28,7 @@ jobs:
         run: |
           new_version="version: ${{ github.event.inputs.releaseVersion }}+${GITHUB_RUN_NUMBER}"
           echo "Setting new version in pubspec.yaml: $new_version"
-              if [[ "$RUNNER_OS" == "Linux" ]]; then
-                sed -i "s/version: .*/$new_version/" pubspec.yaml
-              elif [[ "$RUNNER_OS" == "macOS" ]]; then
-                sed -i '' "s/version: .*/$new_version/" pubspec.yaml
-              fi 
+          sed -i "s/version: .*/$new_version/" pubspec.yaml
           echo "version=$new_version" >> $GITHUB_OUTPUT 
 
   # JOB : Build Android ou Build iOS
