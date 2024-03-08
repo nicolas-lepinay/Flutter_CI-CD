@@ -37,6 +37,7 @@ jobs:
   # JOB: Build Android ou Build iOS
   build:
     needs: update-version
+    if: always()  # Garantit que ce job s'exécute même si update-version est skipped
     name: ${{ matrix.name }}  # Définit le nom du job en fonction de la matrice ("Build Android" ou "Build iOS")
     strategy:
       matrix:
