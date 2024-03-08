@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_app/main.dart' as app;
+import 'package:rive_animation/main.dart' as app;
 
 void main() {
   group('App Test', () {
