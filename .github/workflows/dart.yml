@@ -93,7 +93,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ipa-${{ github.event.inputs.releaseVersion || 'debug' }}
-          path: build/ios/ipa/*.ipa
+          path: /Users/runner/work/Flutter_CI-CD/Flutter_CI-CD/build/ios/iphoneos/*.app
 
   create_release:
     runs-on: ubuntu-latest
