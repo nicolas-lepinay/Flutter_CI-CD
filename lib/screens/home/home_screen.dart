@@ -45,7 +45,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               ...recentCourses.map((course) => Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                     child: SecondaryCourseCard(course: course),
                   )),
             ],
@@ -79,10 +80,8 @@ class SecondaryCourseCard extends StatelessWidget {
               children: [
                 Text(
                   course.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 Text(
                   "Lire l'article",

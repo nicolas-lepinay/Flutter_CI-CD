@@ -52,7 +52,7 @@ class _SignInFormState extends State<SignInForm> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => EntryPoint(),
+                      builder: (context) => const EntryPoint(),
                     ),
                   );
                 },
@@ -165,8 +165,8 @@ class _SignInFormState extends State<SignInForm> {
                     StateMachineController? controller =
                         RiveUtils.getRiveController(artboard);
                     check = controller!.findSMI("Check") as SMITrigger;
-                    error = controller!.findSMI("Error") as SMITrigger;
-                    reset = controller!.findSMI("Reset") as SMITrigger;
+                    error = controller.findSMI("Error") as SMITrigger;
+                    reset = controller.findSMI("Reset") as SMITrigger;
                   },
                 ),
               )
@@ -186,7 +186,7 @@ class _SignInFormState extends State<SignInForm> {
                   ),
                 ),
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

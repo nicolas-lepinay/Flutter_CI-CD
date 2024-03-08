@@ -30,10 +30,8 @@ class CourseCard extends StatelessWidget {
               children: [
                 Text(
                   course.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.w600),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 12, bottom: 8),
@@ -55,7 +53,8 @@ class CourseCard extends StatelessWidget {
                       offset: Offset((-10 * i).toDouble(), 0),
                       child: CircleAvatar(
                         radius: 20,
-                        backgroundImage: AssetImage("assets/avatars/Avatar ${i + 1}.jpg"),
+                        backgroundImage:
+                            AssetImage("assets/avatars/Avatar ${i + 1}.jpg"),
                       ),
                     ),
                   ),

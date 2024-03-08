@@ -77,9 +77,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Spacer(flex: 3),
-                    SizedBox(
+                    const SizedBox(
                       child: Column(
-                        children: const [
+                        children: [
                           Text(
                             "Flutter & Rive",
                             style: TextStyle(

@@ -18,7 +18,8 @@ class EntryPoint extends StatefulWidget {
   State<EntryPoint> createState() => _EntryPointState();
 }
 
-class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateMixin {
+class _EntryPointState extends State<EntryPoint>
+    with SingleTickerProviderStateMixin {
   RiveAsset selectedBottomNav = bottomNavs.first;
   late SMIBool isSideBarClosed;
   late AnimationController _animationController;
@@ -37,11 +38,13 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
       });
 
     animation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.fastOutSlowIn),
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
     );
 
     scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.fastOutSlowIn),
+      CurvedAnimation(
+          parent: _animationController, curve: Curves.fastOutSlowIn),
     );
 
     super.initState();
@@ -95,7 +98,8 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
             child: MenuBtn(
               riveOnInit: (artboard) {
                 StateMachineController? controller =
-                    RiveUtils.getRiveController(artboard, stateMachineName: "State Machine");
+                    RiveUtils.getRiveController(artboard,
+                        stateMachineName: "State Machine");
                 isSideBarClosed = controller!.findSMI("isOpen") as SMIBool;
                 isSideBarClosed.value = true;
               },
@@ -157,20 +161,25 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        AnimatedBar(isActive: bottomNavs[index] == selectedBottomNav),
+                        AnimatedBar(
+                            isActive: bottomNavs[index] == selectedBottomNav),
                         SizedBox(
                           height: 36,
                           width: 36,
                           child: Opacity(
-                            opacity: bottomNavs[index] == selectedBottomNav ? 1 : 0.5,
+                            opacity: bottomNavs[index] == selectedBottomNav
+                                ? 1
+                                : 0.5,
                             child: RiveAnimation.asset(
                               bottomNavs[index].src,
                               artboard: bottomNavs[index].artboard,
                               onInit: (artboard) {
-                                StateMachineController? controller = RiveUtils.getRiveController(
-                                    artboard,
-                                    stateMachineName: bottomNavs[index].stateMachineName);
-                                bottomNavs[index].input = controller!.findSMI("active") as SMIBool;
+                                StateMachineController? controller =
+                                    RiveUtils.getRiveController(artboard,
+                                        stateMachineName:
+                                            bottomNavs[index].stateMachineName);
+                                bottomNavs[index].input =
+                                    controller!.findSMI("active") as SMIBool;
                               },
                             ),
                           ),

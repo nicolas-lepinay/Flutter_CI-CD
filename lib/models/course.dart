@@ -24,7 +24,10 @@ List<Course> courses = [
 
 List<Course> recentCourses = [
   Course(title: "State Machine"),
-  Course(title: "Menu animé", iconSrc: "assets/icons/ios.svg", bgColor: const Color(0xFF9CC5FF)),
+  Course(
+      title: "Menu animé",
+      iconSrc: "assets/icons/ios.svg",
+      bgColor: const Color(0xFF9CC5FF)),
   Course(title: "Live chat"),
   Course(
       title: "Barre de navigation",
