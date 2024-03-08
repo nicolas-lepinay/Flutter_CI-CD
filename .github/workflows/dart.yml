@@ -102,12 +102,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.event.inputs.releaseVersion }}
-          release_name: Release ${{ github.event.inputs.releaseVersion }}
-          body: "Description of the changes for this release"
+          name: Release ${{ github.event.inputs.releaseVersion }}
+          body: Description of the changes for this release...
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
