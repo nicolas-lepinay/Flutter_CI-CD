@@ -32,7 +32,7 @@ jobs:
               elif [[ "$RUNNER_OS" == "macOS" ]]; then
                 sed -i '' "s/version: .*/$new_version/" pubspec.yaml
               fi 
-          echo "::set-output name=version::$new_version"  
+          echo "version=$new_version" >> $GITHUB_OUTPUT 
 
   # JOB: Build Android ou Build iOS
   build:
