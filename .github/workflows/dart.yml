@@ -14,7 +14,29 @@ on:
         default: ''
 
 jobs:
+  # JOB: Mise à jour de la version dans le pubspec.yaml
+  update-version:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.releaseVersion
+    outputs:
+      new-version: ${{ steps.set-version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update version in pubspec.yaml
+        id: set-version
+        run: |
+          new_version="version: ${{ github.event.inputs.releaseVersion }}+${GITHUB_RUN_NUMBER}"
+          echo "Setting new version in pubspec.yaml: $new_version"
+              if [[ "$RUNNER_OS" == "Linux" ]]; then
+                sed -i "s/version: .*/$new_version/" pubspec.yaml
+              elif [[ "$RUNNER_OS" == "macOS" ]]; then
+                sed -i '' "s/version: .*/$new_version/" pubspec.yaml
+              fi 
+          echo "::set-output name=version::$new_version"  
+
+  # JOB: Build Android ou Build iOS
   build:
+    needs: update-version
     name: ${{ matrix.name }}  # Définit le nom du job en fonction de la matrice ("Build Android" ou "Build iOS")
     strategy:
       matrix:
@@ -53,17 +75,6 @@ jobs:
 
       - name: Run Unit Tests
         run: flutter test
-
-      - name: Update version in pubspec.yaml
-        if: github.event.inputs.releaseVersion
-        run: |
-          new_version="version: ${{ github.event.inputs.releaseVersion }}+${GITHUB_RUN_NUMBER}"
-          echo "Setting new version in pubspec.yaml: $new_version"
-              if [[ "$RUNNER_OS" == "Linux" ]]; then
-                sed -i "s/version: .*/$new_version/" pubspec.yaml
-              elif [[ "$RUNNER_OS" == "macOS" ]]; then
-                sed -i '' "s/version: .*/$new_version/" pubspec.yaml
-              fi       
 
       - name: Build ${{ matrix.platform }} App
         run: |
