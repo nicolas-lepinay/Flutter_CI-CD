@@ -63,15 +63,7 @@ jobs:
                 sed -i "s/version: .*/$new_version/" pubspec.yaml
               elif [[ "$RUNNER_OS" == "macOS" ]]; then
                 sed -i '' "s/version: .*/$new_version/" pubspec.yaml
-              fi
-
-      - name: Commit updated version
-        if: github.event.inputs.releaseVersion
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git commit -am "UPD Update version to ${{ github.event.inputs.releaseVersion }}+${GITHUB_RUN_NUMBER}"
-          git push        
+              fi       
 
       - name: Build ${{ matrix.platform }} App
         run: |
